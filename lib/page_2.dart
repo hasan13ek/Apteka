@@ -1,5 +1,6 @@
 import 'package:apteka/Models/drugsModel.dart';
 import 'package:apteka/page_w.dart';
+import 'package:apteka/page_zakaz.dart';
 import 'package:flutter/material.dart';
 
 class Page_3 extends StatefulWidget {
@@ -87,7 +88,7 @@ class _Page_3State extends State<Page_3> {
                         children: [
                           Padding(padding: EdgeInsets.only(left: 0, right: 0)),
                           Text(
-                            "\$ ${drug?[widget.uz]?.name}",
+                            "\$ ${drug?[widget.uz]?.price}",
                             style: TextStyle(
                                 fontWeight: FontWeight.w800, fontSize: 16),
                           ),
@@ -112,6 +113,19 @@ class _Page_3State extends State<Page_3> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 16),
                           ),
+                          SizedBox(width: 100,),
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>PageZakaz(uzz: widget.uz,)));
+                            },
+                            child: Row(
+                              children: [
+                                Icon(Icons.add_box_outlined,color: Colors.blue,),
+                                SizedBox(width: 2,),
+                                Text("Add to Cart",style: TextStyle(color: Colors.blue),)
+                              ],
+                            ),
+                          )
                         ],
                       ),
                       SizedBox(
