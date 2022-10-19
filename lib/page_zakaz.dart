@@ -10,7 +10,7 @@ class PageZakaz extends StatefulWidget {
   @override
   State<PageZakaz> createState() => _PageZakazState();
 }
-int opshe = 0;
+int opshe = 1;
 int? pull=0;
 class _PageZakazState extends State<PageZakaz> {
   @override
@@ -41,7 +41,7 @@ class _PageZakazState extends State<PageZakaz> {
                   List<DrugsModel?>? drug = oka.data;
                   pull=drug?[widget.uzz]?.price;
                   return Container(
-                    padding: EdgeInsets.only(top: 40,left: 8,right: 10,bottom: 40),
+                    padding: EdgeInsets.only(top: 40,left: 18,right: 10,bottom: 40),
                     width: double.infinity,
                     height: MediaQuery.of(context).size.height,
                     color: Colors.white,
@@ -51,8 +51,8 @@ class _PageZakazState extends State<PageZakaz> {
                         Row(
                           children: [
                             Container(
-                              width: 120,
-                              height: 120,
+                              width: 100,
+                              height: 100,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   image: DecorationImage(
@@ -107,7 +107,7 @@ class _PageZakazState extends State<PageZakaz> {
                           height: 53,
                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(56),color: Color(0xFF4157FF),
                           ),
-                          child: Center(child: Text("Place Order @ \$${opshe==1?pull:}",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400),)),
+                          child: Center(child: Text("Place Order @ \$${opshe>0?pull!*opshe:0}",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400),)),
                         )
                       ],
                     ),
